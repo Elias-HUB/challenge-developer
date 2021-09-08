@@ -37,6 +37,11 @@ const useStyles = (theme) => ({
     flexDirection: "column",
     alignItems: "center",
   },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
 });
 
 const MySwal = withReactContent(Swal);
@@ -84,6 +89,8 @@ class Profile extends React.Component {
             email: response.data.User.email,
             password: response.data.User.password,
             token: response.data.User.token,
+            inputPass: "",
+            inputPass2: "",
           });
         })
         .catch((error) => {
@@ -102,6 +109,7 @@ class Profile extends React.Component {
 
   UpdatePass = (e) => {
     e.preventDefault();
+    console.log("Entre");
     if (this.state.inputPass === this.state.inputPass2) {
       MySwal.fire({
         icon: "warning",
@@ -194,7 +202,11 @@ class Profile extends React.Component {
             <Typography variant="h6" className={classes.title}>
               Cambiar Contraseña
             </Typography>
-            <form autoComplete="off" onSubmit={this.UpdatePass}>
+            <form
+              autoComplete="off"
+              className={classes.form}
+              onSubmit={this.UpdatePass}
+            >
               <Grid container spacing={1}>
                 <Grid item xs={12} md={6}>
                   <TextField
@@ -225,10 +237,11 @@ class Profile extends React.Component {
                   />
                 </Grid>
               </Grid>
+
+              <Button variant="contained" type="submit" color="primary">
+                Modificar Contraseña
+              </Button>
             </form>
-            <Button variant="contained" type="submit" color="primary">
-              Modificar Contraseña
-            </Button>
             <br />
           </Paper>
         </Container>
