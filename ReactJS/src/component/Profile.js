@@ -215,7 +215,7 @@ class Profile extends React.Component {
                     required
                     fullWidth
                     name="inputPass"
-                    label="Contraseña"
+                    label="Nueva Contraseña"
                     onChange={this.changeHandle}
                     inputPass={this.state.inputPass}
                     type="password"
@@ -229,7 +229,7 @@ class Profile extends React.Component {
                     required
                     fullWidth
                     name="inputPass2"
-                    label="Nueva Contraseña"
+                    label="Repetir Contraseña"
                     onChange={this.changeHandle}
                     inputPass2={this.state.inputPass2}
                     type="password"
