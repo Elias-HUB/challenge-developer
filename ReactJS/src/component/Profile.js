@@ -88,6 +88,7 @@ class Profile extends React.Component {
         })
         .catch((error) => {
           console.log(error);
+          mostrarToastNuevo("Token Invalido.", "error");
           this.props.history.push("/Login");
         });
     }
